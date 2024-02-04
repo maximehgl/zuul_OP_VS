@@ -123,6 +123,9 @@ public class Game
             return false;
         }else if(pCommand.getCommandWord().equals("quit")){
             return quit(pCommand);
+        }else if(pCommand.getCommandWord().equals("help")){
+            this.printHelp();
+            return false;
         }else{
             System.out.println("Erreur du programmeur : commande non reconnue !");
             return false;

@@ -106,7 +106,10 @@ public class Game
         
     }
 
-
+    private void eat()
+    {
+        System.out.println("You have eaten now and you are not hungry any more.");
+    }
     
     private void printHelp()
     {
@@ -135,6 +138,9 @@ public class Game
             return false;
         }else if(pCommand.getCommandWord().equals("go")){
             goRoom(pCommand);
+            return false;
+        }else if(pCommand.getCommandWord().equals("eat")){
+            eat();
             return false;
         }else if(pCommand.getCommandWord().equals("look")){
             look(pCommand);

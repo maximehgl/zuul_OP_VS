@@ -25,6 +25,27 @@ public class Room
     {
         this.aDescription = pDescription;
     }
+
+    public Room getExit(final String pDirection)
+    {
+        if(pDirection.equals("North"))
+        {
+            return aNorthExit;
+        }
+        if(pDirection.equals("South"))
+        {
+            return aSouthExit;
+        }
+        if(pDirection.equals("East"))
+        {
+            return aEastExit;
+        }
+        if(pDirection.equals("West"))
+        {
+            return aWestExit;
+        }
+        return null;
+    }
     
     public Room aNorthExit;
     public Room aSouthExit;

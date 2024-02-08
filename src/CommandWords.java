@@ -11,12 +11,25 @@ package src;
 public class CommandWords
 {
     private final String[] aValidCommands = {"go","quit","help"};
-    
+    private final String[] aValidDirections = {"North","South","East","West"};
     public boolean isCommand(final String pCommand)
     {
         for(int i=0;i<aValidCommands.length;i++)
         {
             if(aValidCommands[i].equals(pCommand))
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public boolean isDirection(final String pDirection)
+    {
+        for(int i=0;i<aValidDirections.length;i++)
+        {
+            if(aValidDirections[i].equals(pDirection))
             {
                 return true;
             }

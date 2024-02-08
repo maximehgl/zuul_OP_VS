@@ -8,11 +8,13 @@ public class Game
 {
     private Room aCurrentRoom;
     private Parser aParser;
+    private CommandWords commandWords;
     
     public Game()
     {
         this.createRooms();
         this.aParser = new Parser();
+        this.commandWords = new CommandWords();
     } 
 
     private void printWelcome()
@@ -50,25 +52,16 @@ public class Game
         
         Room vNextRoom = null;
         String vDirection = pDirection.getSecondWord();
-        
-        switch(vDirection) {
-            case "North":
-                vNextRoom = this.aCurrentRoom.aNorthExit;
-                break;
-            case "South":
-                vNextRoom = this.aCurrentRoom.aSouthExit;
-                break;
-            case "East":
-                vNextRoom = this.aCurrentRoom.aEastExit;
-                break;
-            case "West":
-                vNextRoom = this.aCurrentRoom.aWestExit;
-                break;            
-            default:
-                System.out.println("Unknown direction !");
-                return;
+
+        if (!commandWords.isDirection(vDirection))
+        {
+            System.out.println("Unknown direction !");
+            return;
         }
-        
+        else
+        {
+            vNextRoom = aCurrentRoom.getExit(vDirection);
+        }
         
         if (vNextRoom == null)
         {

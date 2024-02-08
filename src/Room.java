@@ -42,12 +42,13 @@ public class Room
     
         exits.put(pDirection, pNeighbor);
 
-        ArrayList<String> dirs = new ArrayList<String>();
-        if (this.exits.get("North")!= null) { dirs.add("North"); }
-        if (this.exits.get("South")!= null) { dirs.add("South"); }
-        if (this.exits.get("East")!= null) { dirs.add("East"); }
-        if (this.exits.get("West")!= null) { dirs.add("West"); }
-        this.aExitDirections = dirs.toArray(this.aExitDirections);
+        
+        ArrayList<String> directions = new ArrayList<String>();
+        for (String direction: exits.keySet())
+        {
+            directions.add(direction);
+        }
+        this.aExitDirections = directions.toArray(this.aExitDirections);
     }
     
     

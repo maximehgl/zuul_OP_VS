@@ -20,7 +20,13 @@ public class Room
     
     public String[] getExitDirections()
     {
-        return this.aExitDirections;
+        ArrayList<String> directions = new ArrayList<String>();
+        for (String direction: exits.keySet())
+        {
+            directions.add(direction);
+        }
+        return directions.toArray(this.aExitDirections);
+
     }
     
     public Room(final String pDescription)
@@ -42,13 +48,6 @@ public class Room
     
         exits.put(pDirection, pNeighbor);
 
-        
-        ArrayList<String> directions = new ArrayList<String>();
-        for (String direction: exits.keySet())
-        {
-            directions.add(direction);
-        }
-        this.aExitDirections = directions.toArray(this.aExitDirections);
     }
     
     

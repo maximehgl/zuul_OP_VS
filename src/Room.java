@@ -1,5 +1,6 @@
 package src;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Classe Room - un lieu du jeu d'aventure Zuul.
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class Room
 {
     private String aDescription = "not available";
+    private HashMap<String, Room> exits;
     private String[] aExitDirections = {};
     
     public String getDescription()
@@ -24,48 +26,27 @@ public class Room
     public Room(final String pDescription)
     {
         this.aDescription = pDescription;
+        exits = new HashMap<String, Room>();
     }
 
     public Room getExit(final String pDirection)
     {
-        if(pDirection.equals("North"))
-        {
-            return aNorthExit;
-        }
-        if(pDirection.equals("South"))
-        {
-            return aSouthExit;
-        }
-        if(pDirection.equals("East"))
-        {
-            return aEastExit;
-        }
-        if(pDirection.equals("West"))
-        {
-            return aWestExit;
-        }
-        return null;
+        return exits.get(pDirection);
     }
     
-    public Room aNorthExit;
-    public Room aSouthExit;
-    public Room aEastExit;
-    public Room aWestExit;
+
     
     
-    public void setExits( final Room pRoomN, final Room pRoomS, final Room pRoomE, final Room pRoomW)
+    public void setExits( final String pDirection, final Room pNeighbor)
     {
     
-        this.aNorthExit = pRoomN;
-        this.aSouthExit = pRoomS;
-        this.aEastExit = pRoomE;
-        this.aWestExit = pRoomW;
-        
+        exits.put(pDirection, pNeighbor);
+
         ArrayList<String> dirs = new ArrayList<String>();
-        if (this.aNorthExit!= null) { dirs.add("North"); }
-        if (this.aSouthExit!= null) { dirs.add("South"); }
-        if (this.aEastExit!= null) { dirs.add("East"); }
-        if (this.aWestExit!= null) { dirs.add("West"); }
+        if (this.exits.get("North")!= null) { dirs.add("North"); }
+        if (this.exits.get("South")!= null) { dirs.add("South"); }
+        if (this.exits.get("East")!= null) { dirs.add("East"); }
+        if (this.exits.get("West")!= null) { dirs.add("West"); }
         this.aExitDirections = dirs.toArray(this.aExitDirections);
     }
     

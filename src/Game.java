@@ -82,7 +82,6 @@ public class Game
 
     private static void printRoomDescription(Room pRoom)
     {
-        System.out.print("You are ");
         System.out.println(pRoom.getDescription());
         System.out.print("Exits: ");
         System.out.println(String.join(" ", pRoom.getExitDirections()));
@@ -90,8 +89,24 @@ public class Game
     
     private void printCurrentRoomDescription()
     {
+        System.out.print("You are ");
         printRoomDescription(this.aCurrentRoom);
     }
+
+    private void look(final Command pLookCommand)
+    {
+        if (pLookCommand.hasSecondWord())
+        {
+            System.out.println("I don't know how to look at something in particular yet.");
+        }
+        else
+        {
+            this.printCurrentRoomDescription();
+        }
+        
+    }
+
+
     
     private void printHelp()
     {
@@ -120,6 +135,9 @@ public class Game
             return false;
         }else if(pCommand.getCommandWord().equals("go")){
             goRoom(pCommand);
+            return false;
+        }else if(pCommand.getCommandWord().equals("look")){
+            look(pCommand);
             return false;
         }else if(pCommand.getCommandWord().equals("quit")){
             return quit(pCommand);

@@ -117,7 +117,7 @@ public class Game
         System.out.println("You wander around at the university.");
         System.out.println(" ");
         System.out.println("Your command words are:");
-        System.out.println("  go quit help");
+        aParser.showCommands();
     }
     
     private boolean quit(final Command pDirection)

@@ -66,5 +66,12 @@ public class Parser
         else {
             return new Command( null, null ); 
         }
-    } // getCommand()
+    }
+    
+    public void showCommands()
+    {
+        commandWords.showAll();
+    }
+
+    // getCommand()
 } // Parser

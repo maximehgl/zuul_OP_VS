@@ -37,4 +37,13 @@ public class CommandWords
         
         return false;
     }
+
+    public void showAll()
+    {
+        for(String command : aValidCommands) 
+        {
+            System.out.print(command + " ");
+        }
+        System.out.println();
+    }
 }

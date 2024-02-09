@@ -18,15 +18,14 @@ public class Room
         return this.aDescription;
     } 
     
-    public String[] getExitDirections()
+    public String getExitString()
     {
         ArrayList<String> directions = new ArrayList<String>();
         for (String direction: exits.keySet())
         {
             directions.add(direction);
         }
-        return directions.toArray(this.aExitDirections);
-
+        return String.join(" ",  directions.toArray(this.aExitDirections));
     }
     
     public Room(final String pDescription)
@@ -39,8 +38,6 @@ public class Room
     {
         return exits.get(pDirection);
     }
-    
-
     
     
     public void setExits( final String pDirection, final Room pNeighbor)

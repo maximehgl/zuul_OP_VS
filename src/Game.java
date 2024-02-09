@@ -23,7 +23,7 @@ public class Game
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type 'help' if you need help.");
         System.out.println(" ");
-        this.printCurrentRoomDescription();
+        this.printCurrentRoomLocationInfo();
     }
  
     private void createRooms()
@@ -77,20 +77,20 @@ public class Game
         }
         
         this.aCurrentRoom = vNextRoom;
-        this.printCurrentRoomDescription();
+        this.printCurrentRoomLocationInfo();
     }
 
-    private static void printRoomDescription(Room pRoom)
+    private static void printLocationInfo(Room pRoom)
     {
         System.out.println(pRoom.getDescription());
         System.out.print("Exits: ");
-        System.out.println(String.join(" ", pRoom.getExitDirections()));
+        System.out.println(pRoom.getExitString());
     }
     
-    private void printCurrentRoomDescription()
+    private void printCurrentRoomLocationInfo()
     {
         System.out.print("You are ");
-        printRoomDescription(this.aCurrentRoom);
+        printLocationInfo(this.aCurrentRoom);
     }
 
     private void look(final Command pLookCommand)
@@ -101,7 +101,7 @@ public class Game
         }
         else
         {
-            this.printCurrentRoomDescription();
+            this.printCurrentRoomLocationInfo();
         }
         
     }

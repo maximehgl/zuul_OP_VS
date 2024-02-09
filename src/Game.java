@@ -43,9 +43,9 @@ public class Game
         vTheatre.setExits( "West", vOutside);
 
         vLab.setExits( "North", vOutside);
-        vLab.setExits( "East", vOffice);
+        vLab.setExits( "Down", vOffice);
 
-        vOffice.setExits( "West", vLab);
+        vOffice.setExits( "Up", vLab);
 
         this.aCurrentRoom = vOutside;
     }

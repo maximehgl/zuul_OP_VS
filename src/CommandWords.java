@@ -11,7 +11,7 @@ package src;
 public class CommandWords
 {
     private final String[] aValidCommands = {"go","quit","help","look","eat"};
-    private final String[] aValidDirections = {"North","South","East","West"};
+    private final String[] aValidDirections = {"North","South","East","West","Up","Down"};
     public boolean isCommand(final String pCommand)
     {
         for(int i=0;i<aValidCommands.length;i++)

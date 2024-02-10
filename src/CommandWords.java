@@ -10,7 +10,7 @@ package src;
  */
 public class CommandWords
 {
-    private final String[] aValidCommands = {"go","quit","help","look","eat"};
+    private final String[] aValidCommands = {"go","quit","help","look","eat","navigate"};
     private final String[] aValidDirections = {"North","South","East","West","Up","Down"};
     public boolean isCommand(final String pCommand)
     {

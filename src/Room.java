@@ -28,6 +28,11 @@ public class Room
         return String.join(" ",  directions.toArray(this.aExitDirections));
     }
     
+    public String getLongDescription()
+    {
+        return "You are " + this.aDescription + "\n" + getExitString();
+    }
+
     public Room(final String pDescription)
     {
         this.aDescription = pDescription;

@@ -48,6 +48,7 @@ public class Parser
         vInputLine = this.aReader.nextLine(); // lit la ligne tapee au clavier
 
         // cherche jusqu'a 2 mots dans la ligne tapee
+        @SuppressWarnings("resource")
         Scanner vTokenizer = new Scanner( vInputLine );
         if ( vTokenizer.hasNext() ) {     // y a-t-il un mot suivant ?
             vWord1 = vTokenizer.next();      // recupere le premier mot

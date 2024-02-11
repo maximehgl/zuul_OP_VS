@@ -3,12 +3,12 @@ package src;
 public class World 
 {
 
-static Room[][] Worldmap;
+static Room[][] aWorld;
 private int mapSize = 20;
 
 public World(final Room[][] pWorld )
 {
-    Worldmap = pWorld;
+    aWorld = pWorld;
 
 }
 
@@ -33,7 +33,7 @@ public Room getZoneExit(final Room pRoom, final String pDirection)
     {
         y = -1;
     }
-    return Worldmap[modulo((a+x),mapSize)][modulo((b+y),mapSize)];
+    return aWorld[modulo((a+x),mapSize)][modulo((b+y),mapSize)];
 }
 
 public Room getZone(final Room pRoom)
@@ -42,7 +42,7 @@ public Room getZone(final Room pRoom)
     int b = getIndex(pRoom)[1];
     
 
-    return Worldmap[a][b];
+    return aWorld[a][b];
 }
 
 
@@ -54,7 +54,7 @@ private int[] getIndex(final Room pRoom)
     {
         for(int j=0;j<mapSize;j++)
     
-            if(pRoom.equals(Worldmap[i][j]))
+            if(pRoom.equals(aWorld[i][j]))
             {
                 tabIndex[0]= i;
                 tabIndex[1]= j;

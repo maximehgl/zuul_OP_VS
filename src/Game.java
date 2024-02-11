@@ -40,27 +40,53 @@ public class Game
         Room vPort2 = new Room("at the port of the second Island");
         Room vPort3 = new Room("at the port of the third Island");
         Room vPort4 = new Room("at the port of the fourth Island");
-        Room vPort5 = new Room("at the port of the fifth Island");
+       
 
-        Room vHouse = new Room("in your house");
-        Room vShipyard = new Room("at the sipyard");
-        Room vCemetery = new Room("in the cemetery");
+        Room vHouse1 = new Room("in your house");
+        Room vShipyard1 = new Room("at the shipyard");
+        Room vMarket1 = new Room("at the market");
+
+        Room vCemetery2 = new Room("in a cemetery");
+        Room vBar2 = new Room("in a bar");
+        Room vShop2 = new Room("in a shop");
+
+        Room vMarket3 = new Room("in a shop");
+        Room vField3 = new Room("in a shop");
+        
+        Room vVillage4 = new Room("in a shop");
+        Room vTree4 = new Room("in a shop");
 
        
 
-        vPort1.setExits( "North", vHouse);
-        vPort1.setExits( "South", vShipyard);
-        vShipyard.setExits( "North", vPort1);
-        vHouse.setExits( "South", vPort1);
-
-
-        vPort2.setExits( "East", vCemetery);
-        vCemetery.setExits( "West", vPort2);
+        
+        vPort1.setExits( "South", vShipyard1);
+        vShipyard1.setExits( "North", vPort1);
+        vShipyard1.setExits( "west", vMarket1);
+        vMarket1.setExits( "East", vShipyard1);
+        vMarket1.setExits( "South", vHouse1);
+        vHouse1.setExits( "North", vMarket1);
 
         
+        vPort2.setExits( "East", vCemetery2);
+        vCemetery2.setExits( "West", vPort2);
+        vCemetery2.setExits( "East", vShop2);
+        vShop2.setExits( "West", vCemetery2);
+        vShop2.setExits( "up", vBar2);
+        vBar2.setExits( "Down", vShop2);
+
+        vPort3.setExits( "North", vMarket3);
+        vMarket3.setExits( "South", vPort3);
+        vMarket3.setExits( "west", vField3);
+        vField3.setExits( "East", vMarket3);
+
+        vPort4.setExits( "North", vVillage4);
+        vVillage4.setExits( "South", vPort4);
+        vVillage4.setExits( "North", vTree4);
+        vTree4.setExits( "South", vVillage4);
+
     
 
-        this.aCurrentRoom = vHouse;
+        this.aCurrentRoom = vHouse1;
 
         
         Room[][] tabWorld = new Room[mapSize][mapSize];
@@ -77,6 +103,8 @@ public class Game
 
         tabWorld[0][0] = vPort1;
         tabWorld[mapSize-1][mapSize-1] = vPort2;
+        tabWorld[mapSize-4][mapSize-10] = vPort3;
+        tabWorld[mapSize-2][mapSize-14] = vPort4;
 
         return tabWorld;
     }
